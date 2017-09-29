@@ -1,0 +1,95 @@
+{
+   "globalMessages": {
+     "required": "El campo es requerido",
+     "minlength": "la longitud mínima es de %d caracteres",
+     "maxlength": "La longitud máxima es de %d caracteres"
+   },
+   "entities": [
+     {
+       "name": "Producto",
+       "attributes": [
+         {
+           "name": "name",
+           "type": "String",
+           "required": true,
+           "messages": {
+             "maxlength": "La longitud máxima es de 30 carácteres"
+           },
+           "validations": [
+             {
+               "type": "minlength",
+               "value": 8,
+               "message": "El campo name debe tener como mínimo una longitud de 8 carácteres"
+             },
+             {
+               "type": "maxlength",
+               "value": 30
+             }
+           ]
+         },
+         {
+           "name": "description",
+           "type": "String",
+           "required": true,
+           "control": "textarea"
+         },
+         {
+           "name": "category",
+           "type": "String",
+           "required": true,
+           "validations": [
+             {
+               "type": "pattern",
+               "value": "[A-Z]*",
+               "message": "Valor debe ser en mayúsculas"
+             }
+           ]
+         },
+         {
+           "name": "price",
+           "type": "Number",
+           "required": true
+         }
+       ],
+       "relationships": [
+         {
+           "entityRef": "Proveedor",
+           "typeRelationship": "many-to-one",
+           "fieldName": "proveedor"
+         }
+       ]
+     },
+     {
+       "name": "Proveedor",
+       "attributes": [
+         {
+           "name": "name",
+           "type": "String"
+         },
+         {
+           "name": "email",
+           "type": "String",
+           "control": "email"
+         },
+         {
+           "name": "address",
+           "type": "String"
+         },
+         {
+           "name": "telefono",
+           "type": "String",
+           "control": "number"
+         }
+       ],
+       "relationships":[
+         {
+           "entityRef": "Producto",
+           "typeRelationship": "one-to-many",
+           "fieldName": "productos",
+           "localField": "_id",
+           "foreignField": "proveedor"
+         }
+       ]
+     }
+   ]
+ }

@@ -1,0 +1,57 @@
+<div class="container m-top-and-bottom">
+  <div class="card">
+    <div class="card-header text-white text-center bg-dark">
+      <h4>{{ crudOperationTitle }} Proveedor</h4>
+    </div>
+    <div class="card-body">
+      <form #myForm="ngForm">
+        <div class="row">
+          <div *ngIf="proveedor && proveedor._id" class="col-md-12 form-group">
+            <label for="field_id">ID</label>
+            <input id="fiel_id" *ngIf="proveedor" type="text" class="form-control" name="id" [(ngModel)]="proveedor._id" disabled required>
+          </div>
+          
+          
+          <div class="col-12 form-group">
+  <label for="field_name">Name</label>
+  <input type="text" id="field_name" *ngIf="proveedor" class="form-control" name="name" [(ngModel)]="proveedor.name"  />
+  <input type="text" id="field_name" *ngIf="!proveedor" class="form-control" name="name" ngModel />
+  </div>
+
+          
+          <div class="col-12 form-group">
+  <label for="field_email">Email</label>
+  <input type="email" id="field_email" *ngIf="proveedor" class="form-control" name="email" [(ngModel)]="proveedor.email"  />
+  <input type="email" id="field_email" *ngIf="!proveedor" class="form-control" name="email" ngModel />
+  </div>
+
+          
+          <div class="col-12 form-group">
+  <label for="field_address">Address</label>
+  <input type="text" id="field_address" *ngIf="proveedor" class="form-control" name="address" [(ngModel)]="proveedor.address"  />
+  <input type="text" id="field_address" *ngIf="!proveedor" class="form-control" name="address" ngModel />
+  </div>
+
+          
+          <div class="col-12 form-group">
+  <label for="field_telefono">Telefono</label>
+  <input type="number" id="field_telefono" *ngIf="proveedor" class="form-control" name="telefono" [(ngModel)]="proveedor.telefono"  />
+  <input type="number" id="field_telefono" *ngIf="!proveedor" class="form-control" name="telefono" ngModel />
+  </div>
+
+          
+
+
+          <div id="buttonsPanel" class="col-12 form-group">
+            <button class="btn btn-dark cursor-pointer" (click)="save(myForm.value)" *ngIf="isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Registrar
+            </button>
+            <button class="btn btn-dark cursor-pointer" (click)="update()" *ngIf="!isCreate" [disabled]="myForm.form.invalid">
+              <i class="fa fa-floppy-o fa-fw"></i>Actualizar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

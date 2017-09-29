@@ -1,0 +1,25 @@
+<div *ngIf="proveedor" class="container-fluid">
+  <h3 class="m-top-and-bottom-2">Proveedor</h3>
+  <hr />
+  <dl>
+    <dt>ID</dt>
+    <dd>{{ proveedor._id }}</dd>
+
+
+    <dt>Name</dt>
+    <dd>{{ proveedor.name }}</dd>
+
+    <dt>Email</dt>
+    <dd>{{ proveedor.email }}</dd>
+
+    <dt>Address</dt>
+    <dd>{{ proveedor.address }}</dd>
+
+    <dt>Telefono</dt>
+    <dd>{{ proveedor.telefono }}</dd>
+
+  </dl>
+  <a routerLink="update" class="btn btn-primary"><i class="fa fa-refresh fa-fw"></i>Actualizar</a>
+
+  <app-producto-list [productos]="proveedor.productoss"></app-producto-list>
+</div>
