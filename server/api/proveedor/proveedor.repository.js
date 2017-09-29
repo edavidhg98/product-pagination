@@ -6,8 +6,7 @@ module.exports = {
   },
   getById(id) {
     return Proveedor.findById(id)
-          
-          .populate('productos')
+          .populate('productoss')
   },
   add(proveedor) {
     const _proveedor = new Proveedor(proveedor);
